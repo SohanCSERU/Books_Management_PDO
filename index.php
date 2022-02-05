@@ -1,18 +1,9 @@
 <?php
 
-include_once('config.php');
+$pdo = require 'connect.php';
 
-$data = '';
-
-if(file_exists('books.json')){
-    $json = file_get_contents('books.json');
-    $data = json_decode($json,true);
-}else{
-    $data = array();
-}
-
+// start working with the database
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +15,12 @@ if(file_exists('books.json')){
     <link rel="stylesheet" href="/CSS/design.css">
     <title>Read From database</title>
 </head>
+
+    <?php
+         use  Vendor\allBooks;
+         require_once __DIR__.'/Vendor/stockdb.php';
+         $books = allBooks();
+    ?>
 
 <body>
     <div class="flex-container" style="justify-content: end;">
@@ -52,7 +49,7 @@ if(file_exists('books.json')){
                     <th>ISBN</th>
                 </tr>
                 
-                <?php foreach ($boos as $book) : ?>
+                <?php foreach ($books as $book) : ?>
                     
                     <tr class="table-row">
                         <td>
