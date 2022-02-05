@@ -1,3 +1,6 @@
 <?php
-$PORT = 8000;
-$BASE_URL = 'http://localhost:'.$PORT;
+
+$host= 'localhost';
+$db = 'books';
+$user = 'postgres';
+$password = 'postgres'; // change to your password

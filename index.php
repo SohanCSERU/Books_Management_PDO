@@ -1,9 +1,6 @@
 <?php
 
 include_once('config.php');
-// include_once('test.php');
-// include_once('delete.php');
-
 
 $data = '';
 
@@ -55,22 +52,22 @@ if(file_exists('books.json')){
                     <th>ISBN</th>
                 </tr>
                 
-                <?php foreach ($data as $key => $obj) : ?>
+                <?php foreach ($boos as $book) : ?>
                     
                     <tr class="table-row">
                         <td>
-                            <?php echo ($key+1);?>
+                            <?php echo $book['id'];?>
                         </td>
                         <td class="table-item">
                             <a>
-                                <?php echo $obj['title']; ?>
+                                <?php echo $book['title']; ?>
                             </a>
                         </td>
-                        <td class="table-item"><?php echo $obj['author']; ?></td>
-                        <td class="table-item"><?php echo $obj['available'] ? 'True' : 'False'; ?></td>
-                        <td class="table-item"><?php echo $obj['isbn']; ?></td>
+                        <td class="table-item"><?php echo $book['author']; ?></td>
+                        <td class="table-item"><?php echo $book['availablity'] ? 'True' : 'False'; ?></td>
+                        <td class="table-item"><?php echo $book['isbn']; ?></td>
                         <td>
-                            <a href="<?php echo 'delete.php?'.'id='. ($key+1); ?>" >
+                            <a href="<?php echo 'delete.php?'.'id='. ($book); ?>" >
                                 <button class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
                             </a>
                         </td>
